@@ -81,17 +81,18 @@ router.post('/login', async (req, res, next) => {
 // ... (Diğer auth rotaları eklenebilir: /register, /logout vb.) ...
 
 module.exports = router;
-//const express = require('express');
-//const router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-router.post('/login', (req, res) => {
+// Basit örnek: Gerçek uygulamada kullanıcı doğrulama ve JWT eklenmeli
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  // Burada gerçek kullanıcı doğrulamanız olmalı
-  if (username && password) {
-    res.json({ token: "test.jwt.token" });
-  } else {
-    res.status(400).json({ message: "Kullanıcı adı ve parola zorunludur." });
+  // Burada kullanıcı doğrulama işlemi yapılmalı
+  if (username === 'admin' && password === 'admin') {
+    // Gerçek uygulamada JWT token üretip dönmelisiniz
+    return res.json({ message: 'Giriş başarılı', user: { username } });
   }
+  return res.status(401).json({ message: 'Kullanıcı adı veya parola hatalı' });
 });
 
 module.exports = router;

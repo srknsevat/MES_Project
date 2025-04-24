@@ -54,6 +54,8 @@ app.use((err, req, res, next) => {
   });
 });
 
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Sunucu ${PORT} portunda tüm ağlarda çalışıyor.`);
