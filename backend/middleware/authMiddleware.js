@@ -11,12 +11,6 @@ const authenticateToken = (req, res, next) => {
     }
 
     const secret = process.env.JWT_SECRET;
-    if (!secret) {
-        console.error("JWT_SECRET tanımlı değil!");
-        // Sunucu hatası olarak logla ama kullanıcıya genel hata ver
-        return res.status(500).json({ error: 'Sunucu yapılandırma hatası.' });
-    }
-
     jwt.verify(token, secret, (err, userPayload) => {
         if (err) {
             // Token geçerli değilse (süresi dolmuş, imzası yanlış vb.) 403 Forbidden hatası döndür
