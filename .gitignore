@@ -1,0 +1,12 @@
+# Ortak .gitignore dosyasına eklenebilecek örnekler
+
+# Frontend .env dosyası
+frontend/.env
+
+# Backend .env dosyası
+backend/.env
+
+# Node.js bağımlılık klasörleri
+
+
+# Log dosyaları
