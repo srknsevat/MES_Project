@@ -36,3 +36,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Sunucu ${PORT} portunda tüm ağlarda çalışıyor.`);
 });
+
+const sqlRoutes = require('./routes/sql');
+app.use('/api/sql', sqlRoutes);

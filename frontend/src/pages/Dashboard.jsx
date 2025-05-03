@@ -6,11 +6,15 @@ import HeaderBar from "../components/HeaderBar";
 import TabBar from "../components/TabBar";
 import WidgetContainer from "../components/WidgetContainer";
 import Syst99App from "../apps/Syst99App";
+import DEVT40Transaction from "../components/DEVT40Transaction";
+import MaterialApp from "../apps/MaterialApp";
+import ProductionApp from "../apps/ProductionApp";
 
 const applicationList = [
   { key: "material", label: "Malzeme", component: "MaterialApp", transaction: "MAT01", description: "Malzeme Yönetimi" },
   { key: "production", label: "Üretim", component: "ProductionApp", transaction: "PRD01", description: "Üretim Takibi" },
-  { key: "syst99", label: "Destek Tabloları", component: "Syst99App", transaction: "SYST99", description: "Destek Tabloları" }
+  { key: "syst99", label: "Destek Tabloları", component: "Syst99App", transaction: "SYST99", description: "Destek Tabloları" },
+  { key: "devt40", label: "SQL Çalıştırıcı", component: "DEVT40Transaction", transaction: "DEVT40", description: "SQL Sorgu Çalıştırıcı" }
 ];
 
 // Widget tanımları
@@ -35,9 +39,10 @@ const sidebarItems = [
 ];
 
 const tabComponentMap = {
-  material: () => <div>Malzeme Uygulaması</div>,
-  production: () => <div>Üretim Uygulaması</div>,
-  syst99: () => <Syst99App />
+  material: () => <MaterialApp />,
+  production: () => <ProductionApp />,
+  syst99: () => <Syst99App />,
+  devt40: () => <DEVT40Transaction />
 };
 
 const Dashboard = () => {
@@ -181,6 +186,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
+      {/* Eğer DEVT40Transaction uygulamasını burada açmak istiyorsanız, ilgili state ve butonu buraya ekleyebilirsiniz */}
     </div>
   );
 };
